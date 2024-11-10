@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+
+/* src/styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    h1, h2, h3, h4, h5, h6{
+        @apply text-black;
+    }
+
+  h1 {
+    @apply text-[clamp(1.75rem,1.1578947368421053rem+2.9605263157894735vw,4rem)] font-bold;
+  }
+  h2 {
+    @apply text-[clamp(1.5rem,1.236842105263158rem+1.3157894736842104vw,2.5rem)] font-bold;
+  }
+  h3 {
+    @apply text-[clamp(1.75rem,1.6842105263157894rem+0.3289473684210526vw,2rem)] font-bold;
+  }
+  h4 {
+    @apply text-[1.5rem] font-bold;
+  }
+  h5 {
+    @apply text-[1.25rem] font-bold;
+  }
+  h6 {
+    @apply text-[1rem] font-semibold;
+  }
+  * {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply text-custom-black bg-custom-ash overflow-x-hidden font-manrope font-medium;
+  }
+  p,
+  span,
+  a,b {
+    @apply text-[14px];
+    
+  }
+  a{
+    @apply hover:text-custom-purple duration-500
+  }
+  header a{
+    @apply hover:text-inherit duration-500
+  }
+
+  input,
+  textarea {
+    @apply w-full max-w-[300px] outline-none bg-[#ffffff] text-inherit p-2 rounded-md border-2;
+  }
+  input,
+  textarea {
+    @apply focus:invalid:border focus:invalid:border-rose-300 focus:valid:border focus:valid:border-custom-purple;
+  }
+}
+@layer utilities {
+  .headerSectionAnimation {
+    background: #ffffffaf;
+    backdrop-filter: blur(20px);
+  }
+  .heroButton1{
+    @apply cursor-pointer px-4 py-2 w-fit text-sm text-nowrap font-bold rounded-full duration-500 bg-white text-custom-purple hover:bg-transparent hover:text-white hover:shadow-md border border-white
+  }
+  .heroButton2{
+    @apply cursor-pointer px-4 py-2 text-center text-sm text-nowrap font-bold rounded-full duration-500 bg-transparent text-white hover:shadow-md border border-white
+  }
+  .activeHeroButton2{
+    @apply bg-white text-custom-purple 
+  }
+  .tabButton{
+    @apply cursor-pointer px-4 py-2.5 text-sm text-nowrap font-bold rounded-full duration-500 bg-custom-ash text-custom-black hover:shadow-md
+  }
+  .activeTabButton{
+    @apply bg-custom-purple text-white
+  }
+  .primaryButton{
+    @apply cursor-pointer px-4 py-2 w-fit text-sm text-nowrap font-bold rounded-full duration-500 bg-custom-purple text-white border border-custom-purple hover:shadow-sm 
+  }
+  .activePrimaryButton{
+    @apply hover:bg-custom-half-purple hover:text-custom-purple
+  }
+  .cardButton{
+    @apply cursor-pointer px-4 py-2 w-fit text-sm text-nowrap font-bold rounded-full duration-500 bg-transparent text-custom-purple border border-custom-purple hover:bg-custom-half-purple
+
+  }
+  /* .activeCardButton{
+    @apply  bg-custom-purple 
+
+  } */
+
+
+  .footerCopyRights a {
+    animation-name: glowMyPortfolioLink;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    /* animation-timing-function: cubic-bezier(0.28, -0.08, 0.61, 1.04); */
+  }
+  
+  @keyframes glowMyPortfolioLink {
+    
+    0% {
+      color: #e33e41;
+    }
+  
+    25% {
+      color:  #c4393b;
+    }
+    50% {
+      color:  #e5474a;
+    }
+    75% {
+      color:  #f14245;
+    }
+    100% {
+      @apply text-custom-red
+    }
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .bg-custom-gradient {
+    background: linear-gradient(109deg, rgba(199,101,165,1) 0%, rgba(241,71,73,1) 40%, rgba(251,202,87,1) 100%);
+  }
+
+  .menu li > *:not(ul, .menu-title, details, .btn):active, .menu li > *:not(ul, .menu-title, details, .btn).active, .menu li > details > summary:active {
+    --tw-bg-opacity: 1;
+    background-color: inherit;
+    color: inherit;
+    border-radius: 0px;
+    border-bottom: 2px solid;
+}
+
+.menu :where(li:not(.menu-title) > *:not(ul, details, .menu-title, .btn)), .menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+  @apply pl-0 lg:pl-4 ml-4 lg:ml-0 
+
+}
+
+
+}
