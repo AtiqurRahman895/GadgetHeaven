@@ -1,6 +1,6 @@
 // import PropTypes from 'prop-types';
 import { useRef } from "react";
-import bannerImg from "../../assets/banner.jpg";
+// import bannerImg from "../../assets/banner.jpg";
 import useBannerHeightWidth from "../../Hooks/useBannerHeightWidth";
 
 const Hero = () => {
@@ -37,7 +37,7 @@ const Hero = () => {
             className="border-2 border-custom-ash p-2 sm:p-3 lg:p-4 bg-[#ffffff5b] rounded-lg w-full absolute"
           >
             <img
-              src={bannerImg}
+              src={`https://i.ibb.co.com/7bjdPsb/banner.jpg`}
               alt=""
               className="rounded-lg w-full"
               style={{ height: `${bannerSectionWidth / 2}px` }}
