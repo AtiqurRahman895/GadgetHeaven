@@ -4,7 +4,7 @@ import './index.css'
 import {createBrowserRouter, RouterProvider, } from "react-router-dom";
 import Base from './components/baseComponent/Base';
 import Home from './components/HomeComponent/Home';
-// import Gadget from './components/GadgetPageComponent/Gadget';
+import Gadget from './components/GadgetPageComponent/Gadget';
 // import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
@@ -23,10 +23,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home/>,
       },
-      // {
-      //   path: "/gadget/:product_id",
-      //   element: <Gadget/>,
-      // },
+      {
+        path: "/gadget/:product_id",
+        element: <Gadget/>,
+      },
       // {
       //   path: "/dashboard",
       //   element: <Dashboard/>,

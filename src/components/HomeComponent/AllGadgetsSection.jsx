@@ -1,7 +1,7 @@
 // import React from 'react';
 import PropTypes from 'prop-types';
 import notAvailable from '../../assets/notAvailable.png'
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const AllGadgetsSection = ({datas}) => {
@@ -23,9 +23,9 @@ const AllGadgetsSection = ({datas}) => {
                             Price: $<span className="text-custom-orange"> {eachGadget.price}</span>
                         </span>
     
-                        {/* <Link to={`/gadget/${eachGadget.product_id}`} type="button" className="cardButton">
+                        <Link to={`/gadget/${eachGadget.product_id}`} type="button" className="cardButton">
                             View Details
-                        </Link> */}
+                        </Link>
     
                     </div>
     
