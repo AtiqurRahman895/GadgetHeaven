@@ -10,7 +10,7 @@ import useAddToWishlist from "../../Hooks/useAddToWishlist";
 
 const DetailsSection = ({ BannerRef }) => {
   const specificGadget = useContext(TransferGadget);
-  const [ ,setCartList,wishList,setWishList,totalCost,setTotalCost, , , , ] = useContext(TransferLists);
+  const {setCartList, wishList, setWishList, totalCost, setTotalCost} = useContext(TransferLists);
   const addToCart = useAddToCart({specificGadget,setCartList,totalCost,setTotalCost,});
   const addToWishList = useAddToWishlist({ specificGadget, setWishList });
 

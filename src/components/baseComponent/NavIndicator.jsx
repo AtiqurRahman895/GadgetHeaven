@@ -5,7 +5,7 @@ import { TransferLists } from '../../Contexts/TransferLists';
 
 const NavIndicator = ({cartList,wishList,totalCost,itIsCart}) => {
     const navigate = useNavigate();  
-    const [ , , , , , ,showCart,setShowCart, , ] = useContext(TransferLists);
+    const {showCart,setShowCart} = useContext(TransferLists);
     const goToDashboardCart=(take)=>{
         setShowCart(take)
         console.log(showCart)

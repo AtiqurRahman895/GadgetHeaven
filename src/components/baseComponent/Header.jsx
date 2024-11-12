@@ -12,7 +12,7 @@ const Header = () => {
 
     const [scrollY, setScrollY]=useState(0)
     const headerRef = useRef(null)
-    const [cartList, ,wishList, ,totalCost, , , , ]=useContext(TransferLists)  
+    const {cartList, wishList, totalCost}=useContext(TransferLists)  
 
     useEffect(()=>{
       const changeHeaderColor=()=>{
