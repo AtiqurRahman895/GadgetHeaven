@@ -9,7 +9,7 @@ import Gadget from './components/GadgetPageComponent/Gadget';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import { HelmetProvider } from 'react-helmet-async';
-// import Dashboard from './components/DashboardPageComponent/Dashboard';
+import Dashboard from './components/DashboardPageComponent/Dashboard';
 // import History from './components/HistoryPageComponent.jsx/History';
 // import ErrorPage from './components/ErrorPageComponent/ErrorPage';
 
@@ -27,10 +27,10 @@ const router = createBrowserRouter([
         path: "/gadget/:product_id",
         element: <Gadget/>,
       },
-      // {
-      //   path: "/dashboard",
-      //   element: <Dashboard/>,
-      // },
+      {
+        path: "/dashboard",
+        element: <Dashboard/>,
+      },
       // {
       //   path: "/history",
       //   element: <History/>,
