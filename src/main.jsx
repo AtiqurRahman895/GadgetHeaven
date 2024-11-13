@@ -11,13 +11,13 @@ import { ToastContainer } from 'react-toastify';
 import { HelmetProvider } from 'react-helmet-async';
 import Dashboard from './components/DashboardPageComponent/Dashboard';
 // import History from './components/HistoryPageComponent.jsx/History';
-// import ErrorPage from './components/ErrorPageComponent/ErrorPage';
+import ErrorPage from './components/ErrorPageComponent/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Base/>,
-    // errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage/>,
     children:[
       {
         path: "/",
