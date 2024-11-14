@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import { HelmetProvider } from 'react-helmet-async';
 import Dashboard from './components/DashboardPageComponent/Dashboard';
-// import History from './components/HistoryPageComponent.jsx/History';
+import History from './components/HistoryPageComponent.jsx/History';
 import ErrorPage from './components/ErrorPageComponent/ErrorPage';
 
 const router = createBrowserRouter([
@@ -31,10 +31,10 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <Dashboard/>,
       },
-      // {
-      //   path: "/history",
-      //   element: <History/>,
-      // },
+      {
+        path: "/history",
+        element: <History/>,
+      },
     ]
   },
 ]);
