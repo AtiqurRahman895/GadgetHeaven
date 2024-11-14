@@ -13,7 +13,7 @@ const PurchaseModal = ({setCartList,setTotalCost,openModal,setOpenModal,totalCos
     },200)
 }
   return (
-        <dialog id="my_modal_1" open={openModal} className="modal absolute">
+        <dialog id="my_modal_1" open={openModal} className="modal fixed h-[100vh] bg-[rgba(0,0,0,0.5)]">
         <div className="modal-box text-center space-y-3 w-full max-w-[300px]">
             <img src={modalImage} alt="" className="m-auto"/>
             <h5 className="border-b">Payment Successfully</h5>

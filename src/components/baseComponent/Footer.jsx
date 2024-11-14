@@ -8,7 +8,6 @@ const Footer = () => {
                     <h3>Gadget Heaven</h3>
                     <p>Leading the way in cutting-edge technology and innovation.</p>
                 </div>
-                <div className="divider"></div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 space-y-6">
                     <div className="place-items-center break-inside-avoid space-y-2">
                         <h6>Services</h6>
@@ -35,6 +34,10 @@ const Footer = () => {
                             <a href="">Cookie Policy</a>
                         </div>
                     </div>
+                </div>
+                <div className="divider"></div>
+                <div className="footerCopyRights text-center">
+                    <span>All right reserved @Gadget-Heaven 2024. Developed by <a href="https://atiqur.pages.dev/"><strong>Atiqur Rahman</strong></a></span>
                 </div>
             </div>
         </footer>

@@ -4,14 +4,12 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { TransferLists } from "../../Contexts/TransferLists";
 import CartListCard from "./CartListCard";
 import sortIcon from "../../assets/sortIcon.svg"
-import PurchaseModal from "./purchaseModal";
 import usePurchase from "../../Hooks/usePurchase";
 
 
 const CartList = () => {
-  const {cartList,setCartList,totalCost,setTotalCost,setOrderList} = useContext(TransferLists);
+  const {cartList,setCartList,totalCost,setOrderList,setOpenModal} = useContext(TransferLists);
   const [sortByPrice, setSortByPrice]= useState(false)
-  const [openModal, setOpenModal]= useState(false)
 
   const makeSort=()=>{
     setSortByPrice(!sortByPrice)
@@ -29,6 +27,7 @@ const CartList = () => {
     }
 
   },[sortByPrice,setCartList])
+  
   const confirmPurchase= usePurchase({cartList,totalCost,setOpenModal,setOrderList})
 
     return (
@@ -60,7 +59,6 @@ const CartList = () => {
                 </div>
             </section>
 
-            <PurchaseModal setCartList={setCartList} setTotalCost={setTotalCost} openModal={openModal} setOpenModal={setOpenModal} totalCost={totalCost} />
         </>
 
     );

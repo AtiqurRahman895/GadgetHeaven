@@ -13,6 +13,8 @@ const Base = () => {
   const [totalCost, setTotalCost] = useState(0);
   const [showCart, setShowCart]=useState(true)
   const [orderList, setOrderList] = useState([]);
+  const [openModal, setOpenModal]= useState(false)
+
 
   const value={
     cartList, setCartList,
@@ -20,6 +22,7 @@ const Base = () => {
     totalCost, setTotalCost,
     showCart, setShowCart,
     orderList, setOrderList,
+    openModal, setOpenModal
   }
 
   return (

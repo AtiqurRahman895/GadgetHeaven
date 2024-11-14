@@ -42,7 +42,7 @@
     
   }
   a{
-    @apply hover:text-custom-purple duration-500
+    @apply hover:text-custom-purple hover:scale-105 duration-500
   }
   header a{
     @apply hover:text-inherit duration-500
@@ -104,20 +104,20 @@
   @keyframes glowMyPortfolioLink {
     
     0% {
-      color: #e33e41;
+      color: #9538E2;
     }
   
-    25% {
-      color:  #c4393b;
+    10% {
+      color:  #ae52f9;
     }
     50% {
-      color:  #e5474a;
+      color:  #8234c2;
     }
-    75% {
-      color:  #f14245;
+    90% {
+      color:  #8008e3;
     }
     100% {
-      @apply text-custom-red
+      @apply text-custom-purple
     }
   }
 
