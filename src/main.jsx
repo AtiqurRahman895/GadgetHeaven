@@ -12,6 +12,10 @@ import { HelmetProvider } from 'react-helmet-async';
 import Dashboard from './components/DashboardPageComponent/Dashboard';
 import History from './components/HistoryPageComponent.jsx/History';
 import ErrorPage from './components/ErrorPageComponent/ErrorPage';
+import Login from './components/AuthenticationComponent/Login';
+import Register from './components/AuthenticationComponent/Register';
+import AuthProvider from './Provider/AuthProvider';
+import PrivateRoute from './components/AuthenticationComponent/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -29,11 +33,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard/>,
+        element:<PrivateRoute><Dashboard/></PrivateRoute>,
       },
       {
         path: "/history",
-        element: <History/>,
+        element:<PrivateRoute><History/></PrivateRoute>,
+      },
+      {
+        path: "/login",
+        element: <Login/>,
+      },
+      {
+        path: "/register",
+        element: <Register/>,
       },
     ]
   },
@@ -41,8 +53,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+
     <HelmetProvider>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router}/>
+      </AuthProvider>
     </HelmetProvider>
 
     <ToastContainer position="top-center"/>

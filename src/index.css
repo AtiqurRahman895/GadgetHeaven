@@ -48,10 +48,10 @@
     @apply hover:text-inherit duration-500
   }
 
-  input,
+  /* input,
   textarea {
-    @apply w-full max-w-[300px] outline-none bg-[#ffffff] text-inherit p-2 rounded-md border-2;
-  }
+    @apply ;
+  } */
   input,
   textarea {
     @apply focus:invalid:border focus:invalid:border-rose-300 focus:valid:border focus:valid:border-custom-purple;

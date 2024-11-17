@@ -1,19 +1,25 @@
 // import PropTypes from 'prop-types';
 
-import { Link, useLocation, } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import NavMenus from "./NavMenus";
 import { useContext, useEffect, useRef, useState } from "react";
 import { TransferLists } from "../../Contexts/TransferLists";
 import NavIndicator from "./NavIndicator";
 import PurchaseModal from "../DashboardPageComponent/PurchaseModal";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Header = () => {
     const location= useLocation() 
     // console.log(location.pathname)
+    useEffect(() => {
+      console.log("Current path:", location.pathname);
+      window.scrollTo(0, 0); // Scroll to the top of the page
+    }, [location.pathname]); // Trigger when the route changes
 
     const [scrollY, setScrollY]=useState(0)
     const headerRef = useRef(null)
     const {cartList,setCartList, wishList,totalCost,setTotalCost,openModal, setOpenModal}=useContext(TransferLists)  
+    const{user,logoutUser}=useContext(AuthContext)
 
     useEffect(()=>{
       const changeHeaderColor=()=>{
@@ -75,8 +81,34 @@ const Header = () => {
             </ul>
           </div>
           <div className="navbar-end">
-            <NavIndicator cartList={cartList} totalCost={totalCost} itIsCart={true} />
-            <NavIndicator wishList={wishList} itIsCart={false} />
+
+            {user?
+              <div className="dropdown dropdown-end text-custom-black">
+                <div tabIndex={0} role="button" className="indicator btn btn-ghost btn-circle avatar px-4">
+                  <div className="w-10 rounded-full">
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      src={user?`${user.photoURL}`:"https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} />
+                  </div>
+                  <span className="badge badge-sm indicator-item top-2 right-2">{cartList.length+wishList.length}</span>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow space-y-2">
+                  {/* <li><p>{user?.displayName}</p></li> */}
+                  <li><a className=""> Profile</a></li>
+                  <li><NavIndicator cartList={cartList} totalCost={totalCost} itIsCart={true} /></li>
+                  <li><NavIndicator wishList={wishList} itIsCart={false} /></li>
+                  <li><p onClick={logoutUser}>Log Out</p></li>
+                </ul>
+              </div>
+              :
+              <Link to={"/login"} className={`${location.pathname !=="/" || scrollY>=16?"primaryButton activePrimaryButton":"heroButton1"}`}>Login</Link>
+            }
+
+
+
+
           </div>
         </div>
       </header>
