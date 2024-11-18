@@ -1,6 +1,7 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/firebase.config";
+import { toast } from "react-toastify";
 
 export const AuthContext= createContext()
 
@@ -22,15 +23,27 @@ const AuthProvider = ({children}) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
+
     const logoutUser=()=>{
         setLoading(true)
         return signOut(auth)
     }
+
+    const verifyAccount=()=>{
+        sendEmailVerification(auth.currentUser)
+        .then(() => {
+            toast.info("Verification email sent! Please check your inbox to verify your account.")
+        }).catch((error) => {
+            toast.error(error.message?error.message:error.code)
+        });
+        setLoading(false)
+
+    }
+
     useEffect(()=>{
         const unsubscribeUser= onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
             setLoading(false)
-
           });
 
         return()=>{
@@ -50,6 +63,7 @@ const AuthProvider = ({children}) => {
         logoutUser,
         loading,
         setLoading,
+        verifyAccount
     }
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

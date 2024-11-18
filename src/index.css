@@ -52,10 +52,12 @@
   textarea {
     @apply ;
   } */
-  input,
-  textarea {
+  input,textarea {
     @apply focus:invalid:border focus:invalid:border-rose-300 focus:valid:border focus:valid:border-custom-purple;
   }
+  /* .invalid{
+    @apply border border-rose-300
+  } */
 }
 @layer utilities {
   .headerSectionAnimation {

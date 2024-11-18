@@ -7,6 +7,8 @@ import { TransferLists } from "../../Contexts/TransferLists";
 import NavIndicator from "./NavIndicator";
 import PurchaseModal from "../DashboardPageComponent/PurchaseModal";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { RiVerifiedBadgeFill } from "react-icons/ri";
+// import { GoUnverified } from "react-icons/go";
 
 const Header = () => {
     const location= useLocation() 
@@ -18,7 +20,9 @@ const Header = () => {
     const [scrollY, setScrollY]=useState(0)
     const headerRef = useRef(null)
     const {cartList,setCartList, wishList,totalCost,setTotalCost,openModal, setOpenModal}=useContext(TransferLists)  
-    const{user,logoutUser}=useContext(AuthContext)
+    const{user,logoutUser,verifyAccount}=useContext(AuthContext)
+    // console.log(user)
+
 
     useEffect(()=>{
       const changeHeaderColor=()=>{
@@ -87,19 +91,35 @@ const Header = () => {
                   <div className="w-10 rounded-full">
                     <img
                       alt="Tailwind CSS Navbar component"
-                      src={user?`${user.photoURL}`:"https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} />
+                      src={user.photoURL?`${user.photoURL}`:"https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"} />
                   </div>
                   <span className="badge badge-sm indicator-item top-2 right-2">{cartList.length+wishList.length}</span>
                 </div>
-                <ul
-                  tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow space-y-2">
-                  {/* <li><p>{user?.displayName}</p></li> */}
-                  <li><a className=""> Profile</a></li>
-                  <li><NavIndicator cartList={cartList} totalCost={totalCost} itIsCart={true} /></li>
-                  <li><NavIndicator wishList={wishList} itIsCart={false} /></li>
-                  <li><p onClick={logoutUser}>Log Out</p></li>
-                </ul>
+                <div className="dropdown-content bg-base-100 rounded-box z-[1] mt-3 min-w-52 p-2 shadow space-y-2">
+                  <div className="space-y-1 text-center w-full">
+                    {user.displayName &&
+                    <div className="flex justify-center">
+                      <h5>{user.displayName}</h5>
+                      {/* {user.emailVerified?<RiVerifiedBadgeFill className="text-sky-400" />:<RiVerifiedBadgeFill className="text-red-500" />} */}
+                      {user.emailVerified && <RiVerifiedBadgeFill className="text-sky-400" />}
+                    </div>
+                    }
+                    
+                    <p className="text-custom-purple font-bold">{user.email&&user.email}</p>
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-sm space-y-2">
+                    {/* <li><p>{user?.displayName}</p></li> */}
+                    {user.emailVerified || <li><p onClick={verifyAccount} className="text-red-500 hover:text-red-500"> Verify now </p></li>}
+
+                    <li><a className="">Update Profile</a></li>
+                    <li><NavIndicator cartList={cartList} totalCost={totalCost} itIsCart={true} /></li>
+                    <li><NavIndicator wishList={wishList} itIsCart={false} /></li>
+                    <li className="hover:scale-105 duration-200"><p onClick={logoutUser}>Log Out</p></li>
+                  </ul>
+                </div>
+
               </div>
               :
               <Link to={"/login"} className={`${location.pathname !=="/" || scrollY>=16?"primaryButton activePrimaryButton":"heroButton1"}`}>Login</Link>

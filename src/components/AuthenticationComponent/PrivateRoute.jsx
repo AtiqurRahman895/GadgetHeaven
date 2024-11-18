@@ -8,7 +8,7 @@ const PrivateRoute = ({children}) => {
     if(loading){
         return <Loading/>
     }
-    if(user && user?.email){
+    if(user){
         return children
     }
     return <Navigate to={"/login"}></Navigate>

@@ -1,11 +1,13 @@
 // import React from 'react';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { toast } from 'react-toastify';
+import { IoIosEye, IoIosEyeOff } from 'react-icons/io';
 // import PropTypes from 'prop-types';
 
 const Login = () => {
+    const [showPassword, setShowPassword]=useState(false)
     const {loginUser,setUser}=useContext(AuthContext)
     const navigate=useNavigate()
 
@@ -39,15 +41,20 @@ const Login = () => {
                         </label>
                         <input type="email" name='email' placeholder="email" className="input input-bordered" required />
                         </div>
-                        <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Password</span>
-                        </label>
-                        <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-                        <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                        </label>
+                        
+                        <div className="form-control relative">
+                            <label className="label">
+                                <span className="label-text">Password</span>
+                            </label>
+                            <input type={showPassword?"text":"password"} name="password" placeholder="password" className="input input-bordered" required />
+                            <button onClick={()=>setShowPassword(!showPassword)} type="button" className="btn btn-circle btn-sm absolute right-4 top-11">
+                                {showPassword?<IoIosEye className="text-[20px]" />:<IoIosEyeOff className="text-[20px]" />}
+                            </button>
+                            <label className="label">
+                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                            </label>
                         </div>
+
                         <div className="form-control mt-6">
                         <button className="btn bg-custom-purple hover:bg-custom-half-purple text-white hover:text-black btn-block">Login</button>
                         </div>
