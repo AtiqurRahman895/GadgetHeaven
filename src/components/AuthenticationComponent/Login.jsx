@@ -14,7 +14,7 @@ const Login = () => {
         const email=e.target.email.value
         const password=e.target.password.value
 
-        console.log(email,password)
+        // console.log(email,password)
         loginUser(email,password)
             .then((userCredential) => {
                 setUser(userCredential.user)

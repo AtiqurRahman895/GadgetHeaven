@@ -12,7 +12,6 @@ const Header = () => {
     const location= useLocation() 
     // console.log(location.pathname)
     useEffect(() => {
-      console.log("Current path:", location.pathname);
       window.scrollTo(0, 0); // Scroll to the top of the page
     }, [location.pathname]); // Trigger when the route changes
 

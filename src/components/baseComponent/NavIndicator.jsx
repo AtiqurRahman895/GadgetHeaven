@@ -5,10 +5,9 @@ import { TransferLists } from '../../Contexts/TransferLists';
 
 const NavIndicator = ({itIsCart}) => {
     const navigate = useNavigate();  
-    const {cartList,wishList,showCart,setShowCart} = useContext(TransferLists);
+    const {cartList,wishList,setShowCart} = useContext(TransferLists);
     const goToDashboardCart=(take)=>{
         setShowCart(take)
-        console.log(showCart)
         navigate("/dashboard")
     }
 

@@ -22,7 +22,7 @@ const HistoryListCard = ({specificOrder}) => {
 };
 
 HistoryListCard.propTypes = {
-    specificOrder: PropTypes.array.isRequired
+    specificOrder: PropTypes.object.isRequired
 };
 
 export default HistoryListCard;
