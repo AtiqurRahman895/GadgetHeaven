@@ -149,5 +149,17 @@
 
 }
 
+@media (min-width: 1024px) {
+  .menu :where(li:not(.menu-title) > *:not(ul, details, .menu-title, .btn)), .menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+    margin-inline: 0px;
+    padding-inline: 1rem;
+  }
+}
+
+.menu :where(li:not(.menu-title) > *:not(ul, details, .menu-title, .btn)), .menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+    margin-inline: 0px;
+    padding-inline: 1rem;
+}
+
 
 }

@@ -10,14 +10,9 @@ import useAddToWishlist from "../../Hooks/useAddToWishlist";
 
 const DetailsSection = ({ BannerRef }) => {
   const specificGadget = useContext(TransferGadget);
-  const {setCartList, wishList, setWishList, totalCost, setTotalCost} = useContext(TransferLists);
-  const addToCart = useAddToCart({specificGadget,setCartList,totalCost,setTotalCost,});
-  const addToWishList = useAddToWishlist({ specificGadget, setWishList });
-
-  // const removeFromCart=useRemoveFromCart({specificGadget,cartList,setCartList,totalCost,setTotalCost})
-  // const removeFromWishlist=useRemoveFromWishlist({specificGadget,wishList,setWishList})
-
-  // console.log(cartList)
+  const {wishList} = useContext(TransferLists);
+  const addToCart = useAddToCart({specificGadget});
+  const addToWishList = useAddToWishlist({ specificGadget });
 
   return (
     <>

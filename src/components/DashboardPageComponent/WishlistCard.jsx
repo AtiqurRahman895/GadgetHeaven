@@ -1,13 +1,10 @@
 import PropTypes from 'prop-types';
 import useAddToCart from "../../Hooks/useAddToCart";
 import useRemoveFromWishlist from "../../Hooks/useRemoveFromWishlist"
-import { useContext } from 'react';
-import { TransferLists } from '../../Contexts/TransferLists';
 
 const WishlistCard = ({specificGadget}) => {
-    const {setCartList,wishList,setWishList,totalCost,setTotalCost} = useContext(TransferLists);
-    const addToCart = useAddToCart({specificGadget,setCartList,totalCost,setTotalCost,});
-    const removeFromWishlist=useRemoveFromWishlist({specificGadget,wishList,setWishList})
+    const addToCart = useAddToCart({specificGadget});
+    const removeFromWishlist=useRemoveFromWishlist({specificGadget})
 
     return (
         <div className="space-y-3">

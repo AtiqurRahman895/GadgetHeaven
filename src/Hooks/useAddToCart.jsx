@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
 
 import { toast } from "react-toastify";
+import { TransferLists } from '../Contexts/TransferLists';
 
-const useAddToCart = ({specificGadget, setCartList,totalCost, setTotalCost}) => {
+const useAddToCart = ({specificGadget}) => {
+    const {setCartList} = useContext(TransferLists);
     const addToCart=()=>{
         toast.success(`You've added ${specificGadget.product_title} to the cart.`)
         setCartList((preCartList=>[...preCartList,specificGadget]))
-        setTotalCost(totalCost+specificGadget.price)
     }
 
     return addToCart

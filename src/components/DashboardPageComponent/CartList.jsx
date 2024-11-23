@@ -8,12 +8,13 @@ import usePurchase from "../../Hooks/usePurchase";
 
 
 const CartList = () => {
-  const {cartList,setCartList,totalCost,setOrderList,setOpenModal} = useContext(TransferLists);
+  const {cartList,setCartList,totalCost} = useContext(TransferLists);
   const [sortByPrice, setSortByPrice]= useState(false)
 
   const makeSort=()=>{
     setSortByPrice(!sortByPrice)
   }
+  
   const orginalCartList= useRef([...cartList])
 
   useEffect(()=>{
@@ -28,7 +29,7 @@ const CartList = () => {
 
   },[sortByPrice,setCartList])
   
-  const confirmPurchase= usePurchase({cartList,totalCost,setOpenModal,setOrderList})
+  const confirmPurchase= usePurchase()
 
     return (
         <>

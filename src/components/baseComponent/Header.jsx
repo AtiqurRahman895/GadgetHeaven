@@ -19,7 +19,7 @@ const Header = () => {
 
     const [scrollY, setScrollY]=useState(0)
     const headerRef = useRef(null)
-    const {cartList,setCartList, wishList,totalCost,setTotalCost,openModal, setOpenModal}=useContext(TransferLists)  
+    const {cartList,wishList,totalCost}=useContext(TransferLists)  
     const{user,logoutUser,verifyAccount}=useContext(AuthContext)
     // console.log(user)
 
@@ -42,7 +42,7 @@ const Header = () => {
 
   return (
     <>
-      <PurchaseModal setCartList={setCartList} setTotalCost={setTotalCost} openModal={openModal} setOpenModal={setOpenModal} totalCost={totalCost} />
+      <PurchaseModal />
 
       <header ref={headerRef} className={`${location.pathname=="/"?"py-3 fixed":"sticky"} top-0 z-50 w-full`} style={{color:location.pathname!=="/" || scrollY>=16?null:"white"}}>
         <div className="navbar container">

@@ -1,22 +1,25 @@
 import PropTypes from 'prop-types';
 import modalImage from "../../assets/Group.png"
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { TransferLists } from '../../Contexts/TransferLists';
 
-const PurchaseModal = ({setCartList,setTotalCost,openModal,setOpenModal,totalCost}) => {
-  const navigate = useNavigate();  
-  const closeMidal=()=>{
-    setOpenModal(false)
-    setCartList([])
-    setTotalCost(0)
-    setTimeout(()=>{
-        navigate("/")
-    },200)
-}
+const PurchaseModal = () => {
+    const {setCartList,setTotalCost,openModal,setOpenModal,totalCost} = useContext(TransferLists);
+    const navigate = useNavigate();  
+    const closeMidal=()=>{
+        setOpenModal(false)
+        setCartList([])
+        setTotalCost(0)
+        setTimeout(()=>{
+            navigate("/")
+        },200)
+    }
   return (
         <dialog id="my_modal_1" open={openModal} className="modal fixed h-[100vh] bg-[rgba(0,0,0,0.5)]">
         <div className="modal-box text-center space-y-3 w-full max-w-[300px]">
             <img src={modalImage} alt="" className="m-auto"/>
-            <h5 className="border-b">Payment Successfully</h5>
+            <h5 className="">Payment Successfully</h5>
             <p>Thanks for purchasing.</p>
             <span>Total: $ {totalCost}</span>
             <div className="modal-action">

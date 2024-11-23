@@ -6,7 +6,6 @@ import WishlistCard from "./WishlistCard";
 
 const Wishlist = () => {
   const {wishList} = useContext(TransferLists);
-
     return (
         <section className="py-10">
             <div className="container space-y-5">

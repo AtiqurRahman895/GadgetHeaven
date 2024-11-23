@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
 import useRemoveFromCart from '../../Hooks/useRemoveFromCart';
-import { TransferLists } from '../../Contexts/TransferLists';
 import { Link } from 'react-router-dom';
 
 const CartListCard = ({specificGadget}) => {
-    const {cartList,setCartList,totalCost,setTotalCost} = useContext(TransferLists);
-    const removeFromCart=useRemoveFromCart({specificGadget,cartList,setCartList,totalCost,setTotalCost})
+   
+    const removeFromCart =useRemoveFromCart({specificGadget})
 
     return (
         <div className="space-y-3">

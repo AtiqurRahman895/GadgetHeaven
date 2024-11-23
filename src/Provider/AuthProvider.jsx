@@ -20,12 +20,12 @@ const AuthProvider = ({children}) => {
     }
 
     const loginUser=(email,password)=>{
-        setLoading(true)
+        // setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const logoutUser=()=>{
-        setLoading(true)
+        // setLoading(true)
         return signOut(auth)
     }
 

@@ -6,8 +6,6 @@ const useSpecificGadget = ({ GadgetsId }) => {
   const [specificGadget, setSpecificGadget] = useState(null);
   const [allGadgets] = useAllGadgets();
   useEffect(() => {
-
-
     setSpecificGadget(
       allGadgets.find((data) => data.product_id === GadgetsId)
     );

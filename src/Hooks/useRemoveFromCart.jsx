@@ -1,21 +1,18 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
 import { toast } from "react-toastify";
+import { TransferLists } from '../Contexts/TransferLists';
 
-const useRemoveFromCart = ({specificGadget,cartList,setCartList,totalCost,setTotalCost}) => {
+const useRemoveFromCart = ({specificGadget}) => {
+    const {cartList, setCartList} = useContext(TransferLists);
     const removeFromCart=()=>{
-        const removeOnlyFirstoneWithId=(arr, id)=>{
-            for (let i = 0; i < arr.length; i++) {
-              if (arr[i].product_id === id) {
-                arr.splice(i, 1);
-                break; 
-              }
-            }
-            return arr;
-          }
-        const remainingCartList=removeOnlyFirstoneWithId(cartList, specificGadget.product_id)
-        toast.info(`You've removed ${specificGadget.product_title} from the cart.`)
-        setCartList(remainingCartList)
-        setTotalCost(totalCost-specificGadget.price)
+        const targetedGadgetIndex =cartList.findIndex(gadget=>gadget.product_id === specificGadget.product_id)
+        const remainingGadgetsInCart =cartList.filter((gadget,index)=>index !== targetedGadgetIndex)
+      //   const remainingGadgetsInCart = cartList.filter((gadget, index) => 
+      //     index !== cartList.findIndex(item => item.product_id === specificGadget.product_id)
+      // );
+        toast.info(`You've removed ${specificGadget.product_title} from the cartList.`)
+        setCartList(remainingGadgetsInCart)
     }
     return removeFromCart
 };

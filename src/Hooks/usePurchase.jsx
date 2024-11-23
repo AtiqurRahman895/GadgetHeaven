@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
 import { toast } from 'react-toastify';
+import { TransferLists } from '../Contexts/TransferLists';
 
-const usePurchase = ({cartList,totalCost,setOpenModal,setOrderList,}) => {
+const usePurchase = () => {
+    const {cartList,totalCost,setOpenModal,setOrderList} = useContext(TransferLists);
     const confirmPurchase=()=>{
         if(cartList.length===0){
             toast.error("Your cart is empty. Add gadgets in the cart to purchase")
@@ -14,7 +17,6 @@ const usePurchase = ({cartList,totalCost,setOpenModal,setOrderList,}) => {
                 cost: totalCost,
                 items: cartList,
             }
-
             setOrderList((prevOrderList) => [...prevOrderList, order])
 
         }
